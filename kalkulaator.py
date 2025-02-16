@@ -12,16 +12,20 @@ def calc():
 
     start_date = date(years, month, day)
 
-    end_date = date(years, 12, 13) # ebakindel ajalõpp
+    end_date = date(years, 12, 13)  # ebakindel ajalõpp
 
     days_until_end = (end_date - today).days
+    total_days = (end_date - start_date).days  # kogu ajateenistuse kestus päevades
+
+    # Arvutame protsent arvu
+    days_elapsed = (today - start_date).days
+    percentage_completed = (days_elapsed / total_days) * 100 if total_days > 0 else 0
 
     print(Fore.GREEN + f"Praegune aasta: {Fore.CYAN}{years}{Style.RESET_ALL}")
-
-    print(Fore.GREEN + f"Ajateenistuse alguse aeg : {Fore.CYAN}{start_date}{Style.RESET_ALL}.")
-
-    print(Fore.GREEN + f"Ajateenistuse lõpuni on jäänud : {Fore.CYAN}{days_until_end} päeva{Style.RESET_ALL}.")
-
+    print(Fore.GREEN + f"Ajateenistuse alguse aeg: {Fore.CYAN}{start_date}{Style.RESET_ALL}.")
+    print(Fore.GREEN + f"Ajateenistuse lõpuni on jäänud: {Fore.CYAN}{days_until_end} päeva{Style.RESET_ALL}.")
+    print(Fore.GREEN + f"Ajateenistusest on läbitud: {Fore.CYAN}{days_elapsed} päeva{Style.RESET_ALL}.")
+    print(Fore.GREEN + f"Ajateenistusest on läbitud {Fore.CYAN}{percentage_completed:.2f}%{Style.RESET_ALL}.")
 
 def main():
     while True:
