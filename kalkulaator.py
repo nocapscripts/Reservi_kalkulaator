@@ -12,7 +12,7 @@ def calc():
 
     start_date = date(years, month, day)
 
-    end_date = date(2025, 12, 13) # ebakindel ajalõpp
+    end_date = date(years, 12, 13) # ebakindel ajalõpp
 
     days_until_end = (end_date - today).days
 
